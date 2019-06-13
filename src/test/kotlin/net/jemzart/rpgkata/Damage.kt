@@ -43,4 +43,13 @@ class Damage {
 
 		assert(!victim.alive)
 	}
+
+	@Test
+	fun `cant deal damage to self`(){
+		val attacker = Hero.create()
+
+		attacker.damage(attacker, 1000)
+
+		assert(attacker.health == 1000)
+	}
 }

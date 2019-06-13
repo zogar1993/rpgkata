@@ -9,10 +9,10 @@ class Heal {
 		val hero = Hero.create()
 		val other = Hero.create()
 
-		hero.damage(other, 5)
-		hero.heal(other, 3)
+		other.damage(hero, 5)
+		hero.heal(hero, 3)
 
-		assert(other.health == 998)
+		assert(hero.health == 998)
 	}
 
 	@Test
@@ -20,10 +20,10 @@ class Heal {
 		val hero = Hero.create()
 		val other = Hero.create()
 
-		hero.damage(other, 1000)
-		hero.heal(other, 3)
+		other.damage(hero, 1000)
+		hero.heal(hero, 3)
 
-		assert(other.health == 0)
+		assert(hero.health == 0)
 	}
 
 	@Test
@@ -31,9 +31,31 @@ class Heal {
 		val hero = Hero.create()
 		val other = Hero.create()
 
-		hero.damage(other, 5)
-		hero.heal(other, 8)
+		other.damage(hero, 5)
+		hero.heal(hero, 8)
 
-		assert(other.health == 1000)
+		assert(hero.health == 1000)
+	}
+
+	@Test
+	fun `can heal self`(){
+		val hero = Hero.create()
+		val other = Hero.create()
+
+		other.damage(hero, 5)
+		hero.heal(hero, 3)
+
+		assert(hero.health == 998)
+	}
+
+	@Test
+	fun `can only heal self`(){
+		val hero = Hero.create()
+		val other = Hero.create()
+
+		hero.damage(other, 5)
+		hero.heal(other, 3)
+
+		assert(other.health == 995)
 	}
 }
