@@ -17,21 +17,13 @@ class Hero private constructor() {
 
 	fun damage(hero: Hero, amount: Int) {
 		if (hero == this) return
-		hero.receiveDamage(amount)
-	}
-
-	private fun receiveDamage(amount: Int) {
-		_health -= amount
+		hero._health -= amount
 	}
 
 	fun heal(hero: Hero, amount: Int) {
 		if (hero != this) return
 		if (!hero.alive) return
-		hero.receiveHealing(amount)
-	}
-
-	private fun receiveHealing(amount: Int) {
-		_health += amount
+		hero._health += amount
 	}
 
 	companion object {
