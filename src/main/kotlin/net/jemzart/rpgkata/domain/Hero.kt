@@ -35,8 +35,8 @@ class Hero private constructor() {
 	}
 
 	companion object {
-		private const val MAX_HEALTH = 1000
-		private const val MIN_HEALTH = 0
+		const val MAX_HEALTH = 1000
+		const val MIN_HEALTH = 0
 		fun create(level: Int = 1): Hero {
 			val hero = Hero()
 			hero.level = level
