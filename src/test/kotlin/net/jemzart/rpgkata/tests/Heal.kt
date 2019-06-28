@@ -1,4 +1,4 @@
-package net.jemzart.rpgkata
+package net.jemzart.rpgkata.tests
 
 import net.jemzart.rpgkata.domain.Hero
 import org.junit.Test

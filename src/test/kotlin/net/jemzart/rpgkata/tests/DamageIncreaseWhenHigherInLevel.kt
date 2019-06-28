@@ -1,5 +1,7 @@
-package net.jemzart.rpgkata
+package net.jemzart.rpgkata.tests
 
+import net.jemzart.rpgkata.HeroBuilder
+import net.jemzart.rpgkata.assertEquals
 import org.junit.Test
 
 class DamageIncreaseWhenHigherInLevel {

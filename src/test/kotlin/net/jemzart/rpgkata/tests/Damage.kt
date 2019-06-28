@@ -1,6 +1,8 @@
-package net.jemzart.rpgkata
+package net.jemzart.rpgkata.tests
 
+import net.jemzart.rpgkata.HeroBuilder
 import net.jemzart.rpgkata.actions.DealDamage
+import net.jemzart.rpgkata.assertEquals
 import net.jemzart.rpgkata.domain.Hero
 import org.junit.Before
 import org.junit.Test
