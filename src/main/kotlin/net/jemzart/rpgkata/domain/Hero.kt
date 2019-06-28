@@ -1,21 +1,12 @@
 package net.jemzart.rpgkata.domain
 
 class Hero private constructor(private val range: FighterRange) {
-	val alive get() = health > MIN_HEALTH
+	val alive get() = _health.alive
 	var level = 1; private set
 	val health get() = _health.value
 	private val distances = mutableMapOf<Hero, Int>()
 
 	private var _health = Health(INITIAL_HEALTH)
-	class Health(value: Int){
-		val value = when {
-			value > MAX_HEALTH -> MAX_HEALTH
-			value < MIN_HEALTH -> MIN_HEALTH
-			else -> value
-		}
-		operator fun plus(amount: Int) = Health(value + amount)
-		operator fun minus(amount: Int) = Health(value - amount)
-	}
 
 	fun damage(hero: Hero, amount: Int) {
 		if (hero == this) return
@@ -42,9 +33,7 @@ class Hero private constructor(private val range: FighterRange) {
 	}
 
 	companion object {
-		const val MAX_HEALTH = 1000
-		const val MIN_HEALTH = 0
-		const val INITIAL_HEALTH = MAX_HEALTH
+		const val INITIAL_HEALTH = Health.MAX_HEALTH
 		fun create(level: Int = 1, range: FighterRange = FighterRange.Melee): Hero {
 			val hero = Hero(range = range)
 			hero.level = level
