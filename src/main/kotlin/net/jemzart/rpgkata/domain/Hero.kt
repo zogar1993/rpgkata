@@ -17,7 +17,15 @@ class Hero private constructor() {
 
 	fun damage(hero: Hero, amount: Int) {
 		if (hero == this) return
-		hero._health -= amount
+		hero._health -= calculateDamage(hero, amount)
+	}
+
+	private fun calculateDamage(hero: Hero, amount: Int): Int {
+		return when {
+			level >= hero.level + 5 -> (amount * 1.5).toInt()
+			hero.level >= level + 5 -> (amount * 0.5).toInt()
+			else -> amount
+		}
 	}
 
 	fun heal(hero: Hero, amount: Int) {
@@ -29,8 +37,10 @@ class Hero private constructor() {
 	companion object {
 		private const val MAX_HEALTH = 1000
 		private const val MIN_HEALTH = 0
-		fun create(): Hero {
-			return Hero()
+		fun create(level: Int = 1): Hero {
+			val hero = Hero()
+			hero.level = level
+			return hero
 		}
 	}
 }
