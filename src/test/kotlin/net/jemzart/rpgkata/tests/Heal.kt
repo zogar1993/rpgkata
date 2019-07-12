@@ -1,11 +1,16 @@
 package net.jemzart.rpgkata.tests
 
+import net.jemzart.rpgkata.actions.ApplyHealing
+import net.jemzart.rpgkata.actions.DealDamage
 import net.jemzart.rpgkata.domain.Hero
 import org.junit.Test
 
 class Heal {
+	private val dealDamage: DealDamage = DealDamage()
+	private val applyHealing: ApplyHealing = ApplyHealing()
+
 	@Test
-	fun `damage is subtracted from health`(){
+	fun `healing is added to health`(){
 		val hero = Hero.create()
 		val other = Hero.create()
 
@@ -17,10 +22,8 @@ class Heal {
 
 	@Test
 	fun `the dead may not be healed`(){
-		val hero = Hero.create()
-		val other = Hero.create()
+		val hero = `get hero with a health of`(0)
 
-		other.damage(hero, 1000)
 		hero.heal(hero, 3)
 
 		assert(hero.health == 0)
@@ -57,5 +60,12 @@ class Heal {
 		hero.heal(other, 3)
 
 		assert(other.health == 995)
+	}
+
+	fun `get hero with a health of`(value: Int): Hero {
+		val hero = Hero.create()
+		val aux = Hero.create()
+		dealDamage(aux, hero, Hero.INITIAL_HEALTH - value)
+		return hero
 	}
 }

@@ -4,6 +4,7 @@ import net.jemzart.rpgkata.HeroBuilder
 import net.jemzart.rpgkata.actions.DealDamage
 import net.jemzart.rpgkata.assertEquals
 import net.jemzart.rpgkata.domain.Hero
+import net.jemzart.rpgkata.domain.UNDERLEVEL_DAMAGE_FACTOR
 import org.junit.Test
 
 class DamageDecreaseWhenLowerInLevel {
@@ -32,23 +33,23 @@ class DamageDecreaseWhenLowerInLevel {
 	}
 
 	@Test
-	fun `damage from lvl 1 to lvl 6 (5 lvl difference) is decreased by 50%`(){
+	fun `damage from lvl 1 to lvl 6 (5 lvl difference) is decreased`(){
 		`attacker is level`(1)
 		`victim is level`(6)
 
 		`attacker deals damage to victim`()
 
-		`victim should have received increased damage`()
+		`victim should have received reduced damage`()
 	}
 
 	@Test
-	fun `damage from lvl 2 to lvl 7 (5 lvl difference) is decreased by 50%`(){
+	fun `damage from lvl 2 to lvl 7 (5 lvl difference) is decreased`(){
 		`attacker is level`(2)
 		`victim is level`(7)
 
 		`attacker deals damage to victim`()
 
-		`victim should have received increased damage`()
+		`victim should have received reduced damage`()
 	}
 
 	private fun `attacker deals damage to victim`(){
@@ -67,13 +68,13 @@ class DamageDecreaseWhenLowerInLevel {
 		assertEquals(NORMAL_DAMAGE_RECEIVED, victim.health)
 	}
 
-	private fun `victim should have received increased damage`(){
+	private fun `victim should have received reduced damage`(){
 		assertEquals(INCREASED_DAMAGE_RECEIVED, victim.health)
 	}
 
 	private companion object {
 		const val DAMAGE = 10
-		const val INCREASED_DAMAGE_RECEIVED = Hero.INITIAL_HEALTH - (DAMAGE * 0.5).toInt()
+		const val INCREASED_DAMAGE_RECEIVED = Hero.INITIAL_HEALTH - (DAMAGE * UNDERLEVEL_DAMAGE_FACTOR).toInt()
 		const val NORMAL_DAMAGE_RECEIVED = Hero.INITIAL_HEALTH - DAMAGE
 	}
 }
