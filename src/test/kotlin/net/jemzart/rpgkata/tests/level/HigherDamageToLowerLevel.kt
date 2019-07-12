@@ -1,16 +1,16 @@
-package net.jemzart.rpgkata.tests
+package net.jemzart.rpgkata.tests.level
 
-import net.jemzart.rpgkata.HeroBuilder
+import net.jemzart.rpgkata.GameCharacterBuilder
 import net.jemzart.rpgkata.actions.DealDamage
 import net.jemzart.rpgkata.assertEquals
-import net.jemzart.rpgkata.domain.Hero
+import net.jemzart.rpgkata.domain.GameCharacter
 import net.jemzart.rpgkata.domain.OVERLEVEL_DAMAGE_FACTOR
 import org.junit.Test
 
-class DamageIncreaseWhenHigherInLevel {
+class HigherDamageToLowerLevel {
 	private val dealDamage: DealDamage = DealDamage()
-	private lateinit var attacker: Hero
-	private lateinit var victim: Hero
+	private lateinit var attacker: GameCharacter
+	private lateinit var victim: GameCharacter
 
 	@Test
 	fun `damage from lvl 5 to lvl 1 (4 lvl difference) is normal`(){
@@ -57,11 +57,11 @@ class DamageIncreaseWhenHigherInLevel {
 	}
 
 	private fun `attacker is level`(level: Int){
-		attacker = HeroBuilder().health(Hero.INITIAL_HEALTH).level(level).build()
+		attacker = GameCharacterBuilder().health(GameCharacter.INITIAL_HEALTH).level(level).build()
 	}
 
 	private fun `victim is level`(level: Int){
-		victim = HeroBuilder().health(Hero.INITIAL_HEALTH).level(level).build()
+		victim = GameCharacterBuilder().health(GameCharacter.INITIAL_HEALTH).level(level).build()
 	}
 
 	private fun `victim should have received normal damage`(){
@@ -74,7 +74,7 @@ class DamageIncreaseWhenHigherInLevel {
 
 	private companion object {
 		const val DAMAGE = 10
-		const val INCREASED_DAMAGE_RECEIVED = Hero.INITIAL_HEALTH - (DAMAGE * OVERLEVEL_DAMAGE_FACTOR).toInt()
-		const val NORMAL_DAMAGE_RECEIVED = Hero.INITIAL_HEALTH - DAMAGE
+		const val INCREASED_DAMAGE_RECEIVED = GameCharacter.INITIAL_HEALTH - (DAMAGE * OVERLEVEL_DAMAGE_FACTOR).toInt()
+		const val NORMAL_DAMAGE_RECEIVED = GameCharacter.INITIAL_HEALTH - DAMAGE
 	}
 }

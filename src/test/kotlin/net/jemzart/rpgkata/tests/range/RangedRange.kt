@@ -1,25 +1,25 @@
-package net.jemzart.rpgkata.tests
+package net.jemzart.rpgkata.tests.range
 
-import net.jemzart.rpgkata.HeroBuilder
+import net.jemzart.rpgkata.GameCharacterBuilder
 import net.jemzart.rpgkata.actions.DealDamage
 import net.jemzart.rpgkata.assertEquals
-import net.jemzart.rpgkata.domain.Hero
+import net.jemzart.rpgkata.domain.GameCharacter
 import org.junit.Before
 import org.junit.Test
 
-class MeleeRange {
+class RangedRange {
 	private val dealDamage: DealDamage = DealDamage()
-	private lateinit var attacker: Hero
-	private lateinit var victim: Hero
+	private lateinit var attacker: GameCharacter
+	private lateinit var victim: GameCharacter
 
 	@Before
 	fun setUp(){
-		attacker = HeroBuilder().health(1000).melee().build()
-		victim = HeroBuilder().health(1000).build()
+		attacker = GameCharacterBuilder().health(1000).ranged().build()
+		victim = GameCharacterBuilder().health(1000).build()
 	}
 
 	@Test
-	fun `melee characters can deal damage 1 meter apart`(){
+	fun `ranged characters can deal damage 1 meter apart`(){
 		`attacker and victim are at a distance in meters of`(1)
 
 		`attacker deals damage to victim`()
@@ -28,8 +28,8 @@ class MeleeRange {
 	}
 
 	@Test
-	fun `melee characters can deal damage 2 meter apart`(){
-		`attacker and victim are at a distance in meters of`(2)
+	fun `ranged characters can deal damage 20 meter apart`(){
+		`attacker and victim are at a distance in meters of`(20)
 
 		`attacker deals damage to victim`()
 
@@ -37,8 +37,8 @@ class MeleeRange {
 	}
 
 	@Test
-	fun `melee characters can't deal damage 3 meter apart`(){
-		`attacker and victim are at a distance in meters of`(3)
+	fun `ranged characters can't deal damage 21 meter apart`(){
+		`attacker and victim are at a distance in meters of`(21)
 
 		`attacker deals damage to victim`()
 
@@ -58,11 +58,11 @@ class MeleeRange {
 	}
 
 	private fun `victim should not have received damage`(){
-		assertEquals(Hero.INITIAL_HEALTH, victim.health)
+		assertEquals(GameCharacter.INITIAL_HEALTH, victim.health)
 	}
 
 	private companion object {
 		const val DAMAGE = 10
-		const val DAMAGE_RECEIVED = Hero.INITIAL_HEALTH - DAMAGE
+		const val DAMAGE_RECEIVED = GameCharacter.INITIAL_HEALTH - DAMAGE
 	}
 }

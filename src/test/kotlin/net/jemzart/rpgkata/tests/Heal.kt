@@ -2,7 +2,8 @@ package net.jemzart.rpgkata.tests
 
 import net.jemzart.rpgkata.actions.ApplyHealing
 import net.jemzart.rpgkata.actions.DealDamage
-import net.jemzart.rpgkata.domain.Hero
+import net.jemzart.rpgkata.assertEquals
+import net.jemzart.rpgkata.domain.GameCharacter
 import org.junit.Test
 
 class Heal {
@@ -11,11 +12,9 @@ class Heal {
 
 	@Test
 	fun `healing is added to health`(){
-		val hero = Hero.create()
-		val other = Hero.create()
+		val hero = `get hero with a health of`(995)
 
-		other.damage(hero, 5)
-		hero.heal(hero, 3)
+		applyHealing(healer = hero, target = hero, amount = 3)
 
 		assert(hero.health == 998)
 	}
@@ -24,48 +23,44 @@ class Heal {
 	fun `the dead may not be healed`(){
 		val hero = `get hero with a health of`(0)
 
-		hero.heal(hero, 3)
+		applyHealing(healer = hero, target = hero, amount = 3)
 
 		assert(hero.health == 0)
 	}
 
 	@Test
 	fun `health may not be raised above 1000`(){
-		val hero = Hero.create()
-		val other = Hero.create()
+		val hero = `get hero with a health of`(995)
 
-		other.damage(hero, 5)
-		hero.heal(hero, 8)
+		applyHealing(healer = hero, target = hero, amount = 8)
 
-		assert(hero.health == 1000)
+		assert(hero.health == GameCharacter.INITIAL_HEALTH)
 	}
 
 	@Test
 	fun `can heal self`(){
-		val hero = Hero.create()
-		val other = Hero.create()
+		val hero = `get hero with a health of`(995)
 
-		other.damage(hero, 5)
-		hero.heal(hero, 3)
+		applyHealing(healer = hero, target = hero, amount = 3)
 
 		assert(hero.health == 998)
 	}
 
 	@Test
 	fun `can only heal self`(){
-		val hero = Hero.create()
-		val other = Hero.create()
+		val hero = GameCharacter.create()
+		val other = `get hero with a health of`(995)
 
-		hero.damage(other, 5)
-		hero.heal(other, 3)
+		applyHealing(healer = hero, target = hero, amount = 3)
 
 		assert(other.health == 995)
 	}
 
-	fun `get hero with a health of`(value: Int): Hero {
-		val hero = Hero.create()
-		val aux = Hero.create()
-		dealDamage(aux, hero, Hero.INITIAL_HEALTH - value)
+	private fun `get hero with a health of`(value: Int): GameCharacter {
+		val hero = GameCharacter.create()
+		val aux = GameCharacter.create()
+		dealDamage(aux, hero, GameCharacter.INITIAL_HEALTH - value)
+		assertEquals(value, hero.health)
 		return hero
 	}
 }
