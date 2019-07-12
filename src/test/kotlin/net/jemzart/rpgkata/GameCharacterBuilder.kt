@@ -1,12 +1,12 @@
 package net.jemzart.rpgkata
 
-import net.jemzart.rpgkata.domain.FighterRange
+import net.jemzart.rpgkata.domain.CharacterRange
 import net.jemzart.rpgkata.domain.GameCharacter
 
 class GameCharacterBuilder {
 	private var level: Int = 1
 	private var health: Int = GameCharacter.INITIAL_HEALTH
-	private var range = FighterRange.Melee
+	private var range = CharacterRange.Melee
 
 	fun level(level: Int): GameCharacterBuilder {
 		this.level = level
@@ -14,17 +14,12 @@ class GameCharacterBuilder {
 	}
 
 	fun melee(): GameCharacterBuilder {
-		range = FighterRange.Melee
+		range = CharacterRange.Melee
 		return this
 	}
 
 	fun ranged(): GameCharacterBuilder {
-		range = FighterRange.Ranged
-		return this
-	}
-
-	fun health(health: Int): GameCharacterBuilder {
-		this.health = health
+		range = CharacterRange.Ranged
 		return this
 	}
 

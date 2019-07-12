@@ -10,66 +10,66 @@ import org.junit.Test
 class HigherDamageToLowerLevel {
 	private val dealDamage: DealDamage = DealDamage()
 	private lateinit var attacker: GameCharacter
-	private lateinit var victim: GameCharacter
+	private lateinit var target: GameCharacter
 
 	@Test
 	fun `damage from lvl 5 to lvl 1 (4 lvl difference) is normal`(){
 		`attacker is level`(5)
-		`victim is level`(1)
+		`target is level`(1)
 
-		`attacker deals damage to victim`()
+		`attacker deals damage to target`()
 
-		`victim should have received normal damage`()
+		`target should have received normal damage`()
 	}
 
 	@Test
 	fun `damage from lvl 6 to lvl 1 (5 lvl difference) is increased`(){
 		`attacker is level`(6)
-		`victim is level`(1)
+		`target is level`(1)
 
-		`attacker deals damage to victim`()
+		`attacker deals damage to target`()
 
-		`victim should have received increased damage`()
+		`target should have received increased damage`()
 	}
 
 	@Test
 	fun `damage from lvl 6 to lvl 2 (4 lvl difference) is normal`(){
 		`attacker is level`(6)
-		`victim is level`(2)
+		`target is level`(2)
 
-		`attacker deals damage to victim`()
+		`attacker deals damage to target`()
 
-		`victim should have received normal damage`()
+		`target should have received normal damage`()
 	}
 
 	@Test
 	fun `damage from lvl 7 to lvl 2 (5 lvl difference) is increased`(){
 		`attacker is level`(7)
-		`victim is level`(2)
+		`target is level`(2)
 
-		`attacker deals damage to victim`()
+		`attacker deals damage to target`()
 
-		`victim should have received increased damage`()
+		`target should have received increased damage`()
 	}
 
-	private fun `attacker deals damage to victim`(){
-		dealDamage(attacker = attacker, victim = victim, amount = DAMAGE)
+	private fun `attacker deals damage to target`(){
+		dealDamage(attacker = attacker, target = target, amount = DAMAGE)
 	}
 
 	private fun `attacker is level`(level: Int){
-		attacker = GameCharacterBuilder().health(GameCharacter.INITIAL_HEALTH).level(level).build()
+		attacker = GameCharacterBuilder().level(level).build()
 	}
 
-	private fun `victim is level`(level: Int){
-		victim = GameCharacterBuilder().health(GameCharacter.INITIAL_HEALTH).level(level).build()
+	private fun `target is level`(level: Int){
+		target = GameCharacterBuilder().level(level).build()
 	}
 
-	private fun `victim should have received normal damage`(){
-		assertEquals(NORMAL_DAMAGE_RECEIVED, victim.health)
+	private fun `target should have received normal damage`(){
+		assertEquals(NORMAL_DAMAGE_RECEIVED, target.health)
 	}
 
-	private fun `victim should have received increased damage`(){
-		assertEquals(INCREASED_DAMAGE_RECEIVED, victim.health)
+	private fun `target should have received increased damage`(){
+		assertEquals(INCREASED_DAMAGE_RECEIVED, target.health)
 	}
 
 	private companion object {

@@ -26,20 +26,8 @@ class JoiningFactions {
 		assert(FACTION_B in character.factions)
 	}
 
-//	@Test
-//	fun `a character may leave a faction`(){
-//		val character = `a character who joined factions`(FACTION_A, FACTION_B)
-//
-//		joinFaction(character, FACTION_A)
-//		joinFaction(character, FACTION_B)
-//
-//		assert(FACTION_A in character.factions)
-//		assert(FACTION_B in character.factions)
-//	}
-
 	private fun `a newly created character`(): GameCharacter = GameCharacter.create()
 	private fun `a character`(): GameCharacter = GameCharacter.create()
-	private fun `a character who joined factions`(vararg faction: String): GameCharacter = GameCharacter.create()
 
 	companion object{
 		const val FACTION_A = "A"

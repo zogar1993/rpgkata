@@ -10,55 +10,55 @@ import org.junit.Test
 class MeleeRange {
 	private val dealDamage: DealDamage = DealDamage()
 	private lateinit var attacker: GameCharacter
-	private lateinit var victim: GameCharacter
+	private lateinit var target: GameCharacter
 
 	@Before
 	fun setUp(){
-		attacker = GameCharacterBuilder().health(GameCharacter.INITIAL_HEALTH).melee().build()
-		victim = GameCharacterBuilder().health(GameCharacter.INITIAL_HEALTH).build()
+		attacker = GameCharacterBuilder().melee().build()
+		target = GameCharacterBuilder().build()
 	}
 
 	@Test
 	fun `melee characters can deal damage 1 meter apart`(){
-		`attacker and victim are at a distance in meters of`(1)
+		`attacker and target are at a distance in meters of`(1)
 
-		`attacker deals damage to victim`()
+		`attacker deals damage to target`()
 
-		`victim should have received damage`()
+		`target should have received damage`()
 	}
 
 	@Test
 	fun `melee characters can deal damage 2 meter apart`(){
-		`attacker and victim are at a distance in meters of`(2)
+		`attacker and target are at a distance in meters of`(2)
 
-		`attacker deals damage to victim`()
+		`attacker deals damage to target`()
 
-		`victim should have received damage`()
+		`target should have received damage`()
 	}
 
 	@Test
 	fun `melee characters can't deal damage 3 meter apart`(){
-		`attacker and victim are at a distance in meters of`(3)
+		`attacker and target are at a distance in meters of`(3)
 
-		`attacker deals damage to victim`()
+		`attacker deals damage to target`()
 
-		`victim should not have received damage`()
+		`target should not have received damage`()
 	}
 
-	private fun `attacker and victim are at a distance in meters of`(distance: Int){
-		attacker.setDistanceFrom(victim, distance)
+	private fun `attacker and target are at a distance in meters of`(distance: Int){
+		attacker.setDistanceFrom(target, distance)
 	}
 
-	private fun `attacker deals damage to victim`(){
-		dealDamage(attacker = attacker, victim = victim, amount = DAMAGE)
+	private fun `attacker deals damage to target`(){
+		dealDamage(attacker = attacker, target = target, amount = DAMAGE)
 	}
 
-	private fun `victim should have received damage`(){
-		assertEquals(DAMAGE_RECEIVED, victim.health)
+	private fun `target should have received damage`(){
+		assertEquals(DAMAGE_RECEIVED, target.health)
 	}
 
-	private fun `victim should not have received damage`(){
-		assertEquals(GameCharacter.INITIAL_HEALTH, victim.health)
+	private fun `target should not have received damage`(){
+		assertEquals(GameCharacter.INITIAL_HEALTH, target.health)
 	}
 
 	private companion object {
