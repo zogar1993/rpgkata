@@ -3,16 +3,15 @@ package net.jemzart.rpgkata.domain
 class GameCharacter private constructor(private val range: CharacterRange) {
 	var factions: List<String> = listOf(); private set
 	val alive get() = _health.alive
+	val dead get() = !alive
 	var level = INITIAL_LEVEL; private set
 	val health get() = _health.value
 	private val distances = mutableMapOf<GameCharacter, Int>()
 
 	private var _health = Health(INITIAL_HEALTH)
 
-	fun heal(character: GameCharacter, amount: Int) {
-		if (character != this) return
-		if (!character.alive) return
-		character._health += amount
+	fun heal(amount: Int) {
+		this._health += amount
 	}
 
 	fun damage(amount: Int){
@@ -38,6 +37,8 @@ class GameCharacter private constructor(private val range: CharacterRange) {
 	fun isAlliedWith(target: GameCharacter): Boolean {
 		return factions.intersect(target.factions).isNotEmpty()
 	}
+
+	fun isNotAlliedWith(target: GameCharacter) = !isAlliedWith(target)
 
 	companion object {
 		const val INITIAL_HEALTH = Health.MAX_HEALTH
