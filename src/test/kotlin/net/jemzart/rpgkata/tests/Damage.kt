@@ -1,20 +1,20 @@
 package net.jemzart.rpgkata.tests
 
 import net.jemzart.rpgkata.GameCharacterBuilder
-import net.jemzart.rpgkata.actions.DealDamage
+import net.jemzart.rpgkata.actions.DealDamageToCharacter
 import net.jemzart.rpgkata.assertEquals
 import net.jemzart.rpgkata.domain.GameCharacter
 import org.junit.Before
 import org.junit.Test
 
 class Damage {
-	private lateinit var dealDamage: DealDamage
+	private lateinit var dealDamage: DealDamageToCharacter
 	private lateinit var attacker: GameCharacter
 	private lateinit var target: GameCharacter
 
 	@Before
 	fun setUp(){
-		dealDamage = DealDamage()
+		dealDamage = DealDamageToCharacter()
 		attacker = GameCharacterBuilder().build()
 		target = GameCharacterBuilder().build()
 	}

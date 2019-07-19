@@ -1,13 +1,13 @@
 package net.jemzart.rpgkata.tests
 
 import net.jemzart.rpgkata.actions.ApplyHealing
-import net.jemzart.rpgkata.actions.DealDamage
+import net.jemzart.rpgkata.actions.DealDamageToCharacter
 import net.jemzart.rpgkata.assertEquals
 import net.jemzart.rpgkata.domain.GameCharacter
 import org.junit.Test
 
 class Heal {
-	private val dealDamage: DealDamage = DealDamage()
+	private val dealDamage: DealDamageToCharacter = DealDamageToCharacter()
 	private val applyHealing: ApplyHealing = ApplyHealing()
 
 	@Test

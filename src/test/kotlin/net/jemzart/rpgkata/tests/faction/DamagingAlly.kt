@@ -1,7 +1,7 @@
 package net.jemzart.rpgkata.tests.faction
 
 import net.jemzart.rpgkata.GameCharacterBuilder
-import net.jemzart.rpgkata.actions.DealDamage
+import net.jemzart.rpgkata.actions.DealDamageToCharacter
 import net.jemzart.rpgkata.actions.JoinFaction
 import net.jemzart.rpgkata.assertEquals
 import net.jemzart.rpgkata.domain.GameCharacter
@@ -10,7 +10,7 @@ import org.junit.Test
 
 class DamagingAlly {
 	private val joinFaction: JoinFaction = JoinFaction()
-	private val dealDamage: DealDamage = DealDamage()
+	private val dealDamage: DealDamageToCharacter = DealDamageToCharacter()
 	private lateinit var attacker: GameCharacter
 	private lateinit var target: GameCharacter
 
