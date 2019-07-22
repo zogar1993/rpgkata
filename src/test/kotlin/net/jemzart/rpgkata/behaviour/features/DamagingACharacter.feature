@@ -24,4 +24,9 @@ Feature: Dealing damage to a character
 
   Scenario: Cannot attack self
     When "linuar" deals 500 damage to "linuar"
-    Then "linuar" should have 1000 health
+    Then "linuar" should be unharmed
+
+  Scenario: Cannot attack ally
+    Given "linuar" and "carrie" join faction "underworld"
+    When "linuar" deals 500 damage to "carrie"
+    Then "carrie" should be unharmed

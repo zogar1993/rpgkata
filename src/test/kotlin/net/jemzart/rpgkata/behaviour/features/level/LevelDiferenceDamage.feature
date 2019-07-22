@@ -8,7 +8,7 @@ Feature: Damage modifiers according to level difference between attacker and tar
     Given "linuar" is level <attacker_level>
     Given "carrie" is level <target_level>
     When "linuar" deals 100 damage to "carrie"
-    Then "carrie" should have 850 health
+    Then "carrie" should have received 150 damage
     Examples:
       | attacker_level | target_level |
       | 6              | 1            |
@@ -19,7 +19,7 @@ Feature: Damage modifiers according to level difference between attacker and tar
     Given "linuar" is level <attacker_level>
     Given "carrie" is level <target_level>
     When "linuar" deals 100 damage to "carrie"
-    Then "carrie" should have 950 health
+    Then "carrie" should have received 50 damage
     Examples:
       | attacker_level | target_level |
       | 1              | 6            |
@@ -30,11 +30,10 @@ Feature: Damage modifiers according to level difference between attacker and tar
     Given "linuar" is level <attacker_level>
     Given "carrie" is level <target_level>
     When "linuar" deals 100 damage to "carrie"
-    Then "carrie" should have 900 health
+    Then "carrie" should have received 100 damage
     Examples:
       | attacker_level | target_level |
       | 1              | 1            |
-      | 1              | 4            |
-      | 4              | 1            |
-      | 5              | 2            |
-      | 2              | 5            |
+      | 5              | 1            |
+      | 1              | 5            |
+      | 10             | 10           |

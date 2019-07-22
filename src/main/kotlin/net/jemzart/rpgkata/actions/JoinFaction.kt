@@ -1,9 +1,13 @@
 package net.jemzart.rpgkata.actions
 
-import net.jemzart.rpgkata.domain.character.GameCharacter
+import net.jemzart.rpgkata.domain.character.GameCharacters
 
-class JoinFaction {
-	operator fun invoke(character: GameCharacter, faction: String){
-		character.join(faction)
+class JoinFaction(private val characters: GameCharacters) {
+	operator fun invoke(characterName: String, factionName: String){
+		val character = characters.search(characterName)
+
+		character.join(factionName)
+
+		characters.put(character)
 	}
 }

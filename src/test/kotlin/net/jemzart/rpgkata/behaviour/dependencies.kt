@@ -1,9 +1,6 @@
 package net.jemzart.rpgkata.behaviour
 
-import net.jemzart.rpgkata.actions.ApplyHealingToCharacter
-import net.jemzart.rpgkata.actions.CreateCharacter
-import net.jemzart.rpgkata.actions.DealDamageToCharacter
-import net.jemzart.rpgkata.actions.SetCharacterLevel
+import net.jemzart.rpgkata.actions.*
 import net.jemzart.rpgkata.domain.character.GameCharacters
 
 
@@ -13,3 +10,5 @@ val createCharacter = CreateCharacter(characters)
 val dealDamageToCharacter = DealDamageToCharacter(characters)
 val applyHealingToCharacter = ApplyHealingToCharacter(characters)
 val setCharacterLevel = SetCharacterLevel(characters)
+val joinFaction = JoinFaction(characters)
+val leaveFaction = LeaveFaction(characters)

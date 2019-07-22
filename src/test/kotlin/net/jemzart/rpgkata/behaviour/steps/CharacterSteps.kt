@@ -2,7 +2,10 @@ package net.jemzart.rpgkata.behaviour.steps
 
 import cucumber.api.java.en.Given
 import cucumber.api.java.en.Then
+import net.jemzart.rpgkata.assertEquals
+import net.jemzart.rpgkata.assertTrue
 import net.jemzart.rpgkata.behaviour.*
+import net.jemzart.rpgkata.domain.character.GameCharacter
 import org.junit.Assert
 
 class CharacterSteps {
@@ -28,33 +31,27 @@ class CharacterSteps {
 	}
 
 	@Then("{string} should be level {int}")
-	fun `character {name} should be level {level}`(name: String, level: Int) {
+	fun `{name} should be level {level}`(name: String, level: Int) {
 		val character = characters.search(name)
-		Assert.assertEquals(level, character.level)
+		assertEquals(level, character.level)
 	}
 
 	@Then("{string} should have {int} health")
-	fun `character {name} should have {health} health`(name: String, health: Int) {
+	fun `{name} should have {health} health`(name: String, health: Int) {
 		val character = characters.search(name)
-		Assert.assertEquals(health, character.health)
+		assertEquals(health, character.health)
 	}
 
 	@Then("{string} should be alive")
 	fun `character {name} should be alive`(name: String) {
 		val character = characters.search(name)
-		Assert.assertTrue(character.alive)
+		assertTrue(character.alive)
 	}
 
 	@Then("{string} should be dead")
 	fun `character {name} should be dead`(name: String) {
 		val character = characters.search(name)
-		Assert.assertTrue(character.dead)
-	}
-
-	@Then("{string} deals {int} damage to {string}")
-	fun `{attacker} deals {amount} damage to {target}`
-		(attacker: String, amount: Int, target: String) {
-		dealDamageToCharacter(attacker, target, amount)
+		assertTrue(character.dead)
 	}
 
 	@Then("{string} heals {string} by {int}")

@@ -24,3 +24,9 @@ Feature: Dealing damage to a character
     Given "carrie" has 900 health
     When "linuar" heals "carrie" by 50
     Then "carrie" should have 900 health
+
+  Scenario: Can heal ally
+    Given "linuar" and "carrie" join faction "underworld"
+    Given "carrie" has 900 health
+    When "linuar" heals "carrie" by 50
+    Then "carrie" should have 950 health
