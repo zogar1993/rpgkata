@@ -7,7 +7,7 @@ class GameCharacter private constructor(val name: String, private val range: Cha
 	var factions: List<String> = listOf(); private set
 	val alive get() = !dead
 	val dead get() = healthBar.empty
-	var level = INITIAL_LEVEL; private set
+	var level = INITIAL_LEVEL
 	val health get() = healthBar.current
 	private val distances = mutableMapOf<GameCharacter, Int>()
 

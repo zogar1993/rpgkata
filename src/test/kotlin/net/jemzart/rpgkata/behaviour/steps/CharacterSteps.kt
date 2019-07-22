@@ -22,6 +22,11 @@ class CharacterSteps {
 		dealDamageToCharacter(THE_SHADOW, name, character.health - amount)
 	}
 
+	@Given("{string} is level {int}")
+	fun `{name} is level {level}`(name: String, level: Int) {
+		setCharacterLevel(name, level)
+	}
+
 	@Then("{string} should be level {int}")
 	fun `character {name} should be level {level}`(name: String, level: Int) {
 		val character = characters.search(name)
