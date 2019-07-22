@@ -1,7 +1,7 @@
 package net.jemzart.rpgkata
 
 import net.jemzart.rpgkata.domain.CharacterRange
-import net.jemzart.rpgkata.domain.GameCharacter
+import net.jemzart.rpgkata.domain.character.GameCharacter
 
 class GameCharacterBuilder {
 	private var level: Int = 1

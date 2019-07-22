@@ -1,6 +1,5 @@
 package net.jemzart.rpgkata.tests.thing
 
-import net.jemzart.rpgkata.domain.HealthBar
 import net.jemzart.rpgkata.domain.Thing
 import org.junit.Test
 

@@ -1,18 +1,19 @@
 package net.jemzart.rpgkata.tests.faction
 
 import net.jemzart.rpgkata.GameCharacterBuilder
-import net.jemzart.rpgkata.actions.ApplyHealing
+import net.jemzart.rpgkata.actions.ApplyHealingToCharacter
 import net.jemzart.rpgkata.actions.DealDamageToCharacter
 import net.jemzart.rpgkata.actions.JoinFaction
 import net.jemzart.rpgkata.assertEquals
-import net.jemzart.rpgkata.domain.GameCharacter
+import net.jemzart.rpgkata.domain.character.GameCharacter
+import net.jemzart.rpgkata.domain.character.GameCharacters
 import org.junit.Before
 import org.junit.Test
 
 class HealingAmongFactions {
 	private val joinFaction = JoinFaction()
 	private val dealDamage = DealDamageToCharacter()
-	private val applyHealing = ApplyHealing()
+	private val applyHealing = ApplyHealingToCharacter(GameCharacters())
 	private lateinit var linuar: GameCharacter
 	private lateinit var carrie: GameCharacter
 

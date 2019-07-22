@@ -3,7 +3,7 @@ package net.jemzart.rpgkata.tests.level
 import net.jemzart.rpgkata.GameCharacterBuilder
 import net.jemzart.rpgkata.actions.DealDamageToCharacter
 import net.jemzart.rpgkata.assertEquals
-import net.jemzart.rpgkata.domain.GameCharacter
+import net.jemzart.rpgkata.domain.character.GameCharacter
 import net.jemzart.rpgkata.domain.OVERLEVEL_DAMAGE_FACTOR
 import org.junit.Test
 

@@ -3,7 +3,7 @@ package net.jemzart.rpgkata.tests.range
 import net.jemzart.rpgkata.GameCharacterBuilder
 import net.jemzart.rpgkata.actions.DealDamageToCharacter
 import net.jemzart.rpgkata.assertEquals
-import net.jemzart.rpgkata.domain.GameCharacter
+import net.jemzart.rpgkata.domain.character.GameCharacter
 import org.junit.Before
 import org.junit.Test
 

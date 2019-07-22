@@ -1,6 +1,9 @@
-package net.jemzart.rpgkata.domain
+package net.jemzart.rpgkata.domain.character
 
-class GameCharacter private constructor(private val range: CharacterRange) {
+import net.jemzart.rpgkata.domain.CharacterRange
+import net.jemzart.rpgkata.domain.HealthBar
+
+class GameCharacter private constructor(val name: String, private val range: CharacterRange) {
 	var factions: List<String> = listOf(); private set
 	val alive get() = !dead
 	val dead get() = healthBar.empty
@@ -43,8 +46,13 @@ class GameCharacter private constructor(private val range: CharacterRange) {
 	companion object {
 		const val INITIAL_HEALTH = HealthBar.MAX_HEALTH
 		const val INITIAL_LEVEL = 1
+		fun create(name: String): GameCharacter {
+			val hero = GameCharacter(name, range = CharacterRange.Melee)
+			hero.level = INITIAL_LEVEL
+			return hero
+		}
 		fun create(level: Int = INITIAL_LEVEL, range: CharacterRange = CharacterRange.Melee): GameCharacter {
-			val hero = GameCharacter(range = range)
+			val hero = GameCharacter( "", range = range)
 			hero.level = level
 			return hero
 		}

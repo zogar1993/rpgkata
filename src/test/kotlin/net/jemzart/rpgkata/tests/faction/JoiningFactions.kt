@@ -2,7 +2,7 @@ package net.jemzart.rpgkata.tests.faction
 
 import net.jemzart.rpgkata.actions.JoinFaction
 import net.jemzart.rpgkata.assertEquals
-import net.jemzart.rpgkata.domain.GameCharacter
+import net.jemzart.rpgkata.domain.character.GameCharacter
 import org.junit.Test
 
 class JoiningFactions {

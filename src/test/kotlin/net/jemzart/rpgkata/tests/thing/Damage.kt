@@ -1,10 +1,9 @@
 package net.jemzart.rpgkata.tests.thing
 
 import net.jemzart.rpgkata.GameCharacterBuilder
-import net.jemzart.rpgkata.actions.DealDamageToCharacter
 import net.jemzart.rpgkata.actions.DealDamageToThing
 import net.jemzart.rpgkata.assertEquals
-import net.jemzart.rpgkata.domain.GameCharacter
+import net.jemzart.rpgkata.domain.character.GameCharacter
 import net.jemzart.rpgkata.domain.Thing
 import org.junit.Before
 import org.junit.Test
