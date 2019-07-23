@@ -24,6 +24,6 @@ class GameCharacterBuilder {
 	}
 
 	fun build(): GameCharacter {
-		return GameCharacter.create(level = level, range = range)
+		return GameCharacter.create("")
 	}
 }

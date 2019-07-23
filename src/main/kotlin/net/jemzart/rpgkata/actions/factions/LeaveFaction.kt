@@ -1,12 +1,12 @@
-package net.jemzart.rpgkata.actions
+package net.jemzart.rpgkata.actions.factions
 
 import net.jemzart.rpgkata.domain.character.GameCharacters
 
-class JoinFaction(private val characters: GameCharacters) {
+class LeaveFaction(private val characters: GameCharacters) {
 	operator fun invoke(characterName: String, factionName: String){
 		val character = characters.search(characterName)
 
-		character.join(factionName)
+		character.leave(factionName)
 
 		characters.put(character)
 	}

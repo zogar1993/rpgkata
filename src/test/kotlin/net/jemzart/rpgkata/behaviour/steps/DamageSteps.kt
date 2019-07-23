@@ -1,10 +1,9 @@
 package net.jemzart.rpgkata.behaviour.steps
 
 import cucumber.api.java.en.Then
-import net.jemzart.rpgkata.assertEquals
 import net.jemzart.rpgkata.behaviour.*
 import net.jemzart.rpgkata.domain.character.GameCharacter
-import org.junit.Assert
+import org.junit.Assert.assertEquals
 
 class DamageSteps {
 	@Then("{string} should have received {int} damage")

@@ -2,11 +2,9 @@ package net.jemzart.rpgkata.behaviour.steps
 
 import cucumber.api.java.en.Given
 import cucumber.api.java.en.Then
-import net.jemzart.rpgkata.assertEquals
-import net.jemzart.rpgkata.assertTrue
 import net.jemzart.rpgkata.behaviour.*
-import net.jemzart.rpgkata.domain.character.GameCharacter
-import org.junit.Assert
+import org.junit.Assert.assertEquals
+import org.junit.Assert.assertTrue
 
 class CharacterSteps {
 	@Given("character {string} is created")

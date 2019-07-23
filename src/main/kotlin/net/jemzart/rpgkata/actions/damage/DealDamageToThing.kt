@@ -1,4 +1,4 @@
-package net.jemzart.rpgkata.actions
+package net.jemzart.rpgkata.actions.damage
 
 import net.jemzart.rpgkata.domain.character.GameCharacter
 import net.jemzart.rpgkata.domain.Thing

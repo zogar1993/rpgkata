@@ -3,7 +3,8 @@ package net.jemzart.rpgkata.domain.character
 import net.jemzart.rpgkata.domain.CharacterRange
 import net.jemzart.rpgkata.domain.HealthBar
 
-class GameCharacter private constructor(val name: String, private val range: CharacterRange) {
+class GameCharacter private constructor(val name: String) {
+	var range: CharacterRange = CharacterRange.Melee
 	var factions: List<String> = listOf(); private set
 	val alive get() = !dead
 	val dead get() = healthBar.empty
@@ -47,13 +48,8 @@ class GameCharacter private constructor(val name: String, private val range: Cha
 		const val INITIAL_HEALTH = HealthBar.MAX_HEALTH
 		const val INITIAL_LEVEL = 1
 		fun create(name: String): GameCharacter {
-			val hero = GameCharacter(name, range = CharacterRange.Melee)
+			val hero = GameCharacter(name)
 			hero.level = INITIAL_LEVEL
-			return hero
-		}
-		fun create(level: Int = INITIAL_LEVEL, range: CharacterRange = CharacterRange.Melee): GameCharacter {
-			val hero = GameCharacter( "", range = range)
-			hero.level = level
 			return hero
 		}
 	}
