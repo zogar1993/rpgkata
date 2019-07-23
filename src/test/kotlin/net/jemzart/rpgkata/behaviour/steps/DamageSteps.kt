@@ -1,7 +1,9 @@
 package net.jemzart.rpgkata.behaviour.steps
 
 import cucumber.api.java.en.Then
-import net.jemzart.rpgkata.behaviour.*
+import net.jemzart.rpgkata.behaviour.characters
+import net.jemzart.rpgkata.behaviour.dealDamageToCharacter
+import net.jemzart.rpgkata.behaviour.dealDamageToThing
 import net.jemzart.rpgkata.domain.character.GameCharacter
 import org.junit.Assert.assertEquals
 
@@ -20,14 +22,12 @@ class DamageSteps {
 	}
 
 	@Then("{string} deals {int} damage to {string}")
-	fun `{attacker} deals {amount} damage to {target}`
-		(attacker: String, amount: Int, target: String) {
+	fun `{attacker} deals {amount} damage to {target}`(attacker: String, amount: Int, target: String) {
 		dealDamageToCharacter(attacker, target, amount)
 	}
 
 	@Then("{string} deals {int} damage to thing {string}")
-	fun `{attacker} deals {amount} damage to thing {target}`
-		(attacker: String, amount: Int, target: String) {
+	fun `{attacker} deals {amount} damage to thing {target}`(attacker: String, amount: Int, target: String) {
 		dealDamageToThing(attacker, target, amount)
 	}
 }

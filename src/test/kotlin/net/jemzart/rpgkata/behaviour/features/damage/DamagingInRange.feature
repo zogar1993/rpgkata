@@ -6,7 +6,7 @@ Feature: Dealing damage to a character in range
 
   Scenario Outline: Target is in range of a <range_type> attacker when they are <distance> meters apart
     Given "linuar" has a ranged type of <range_type>
-    Given "linuar" is <distance> meters apart from "carrie"
+    And "linuar" is <distance> meters apart from "carrie"
     When "linuar" deals 50 damage to "carrie"
     Then "carrie" should have received 50 damage
     Examples:
@@ -18,7 +18,7 @@ Feature: Dealing damage to a character in range
 
   Scenario Outline: Target is not in range of a <range_type> attacker when they are <distance> meters apart
     Given "linuar" has a ranged type of <range_type>
-    Given "linuar" is <distance> meters apart from "carrie"
+    And "linuar" is <distance> meters apart from "carrie"
     When "linuar" deals 50 damage to "carrie"
     Then "carrie" should be unharmed
     Examples:

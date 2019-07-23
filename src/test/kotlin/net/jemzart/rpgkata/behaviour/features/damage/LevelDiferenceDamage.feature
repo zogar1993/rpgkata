@@ -2,11 +2,11 @@ Feature: Damage modifiers according to level difference between attacker and tar
 
   Background:
     Given character "linuar" is created
-    Given character "carrie" is created
+    And character "carrie" is created
 
   Scenario Outline: 5 levels above modifier. Attacker level: <attacker_level>. Target: level <target_level>.
     Given "linuar" is level <attacker_level>
-    Given "carrie" is level <target_level>
+    And "carrie" is level <target_level>
     When "linuar" deals 100 damage to "carrie"
     Then "carrie" should have received 150 damage
     Examples:
@@ -17,7 +17,7 @@ Feature: Damage modifiers according to level difference between attacker and tar
 
   Scenario Outline: 5 levels beneath modifier. Attacker level: <attacker_level>. Target: level <target_level>.
     Given "linuar" is level <attacker_level>
-    Given "carrie" is level <target_level>
+    And "carrie" is level <target_level>
     When "linuar" deals 100 damage to "carrie"
     Then "carrie" should have received 50 damage
     Examples:
@@ -28,7 +28,7 @@ Feature: Damage modifiers according to level difference between attacker and tar
 
   Scenario Outline: No level modifier. Attacker level: <attacker_level>. Target level: <target_level>.
     Given "linuar" is level <attacker_level>
-    Given "carrie" is level <target_level>
+    And "carrie" is level <target_level>
     When "linuar" deals 100 damage to "carrie"
     Then "carrie" should have received 100 damage
     Examples:

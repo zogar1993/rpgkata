@@ -2,7 +2,7 @@ package net.jemzart.rpgkata.domain.thing
 
 class Things {
 	private val things = mutableMapOf<String, Thing>()
-	fun put(thing: Thing){
+	fun put(thing: Thing) {
 		things[thing.name] = thing
 	}
 

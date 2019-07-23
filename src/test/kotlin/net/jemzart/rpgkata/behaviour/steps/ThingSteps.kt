@@ -2,7 +2,8 @@ package net.jemzart.rpgkata.behaviour.steps
 
 import cucumber.api.java.en.Given
 import cucumber.api.java.en.Then
-import net.jemzart.rpgkata.behaviour.*
+import net.jemzart.rpgkata.behaviour.createThing
+import net.jemzart.rpgkata.behaviour.things
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertTrue
 

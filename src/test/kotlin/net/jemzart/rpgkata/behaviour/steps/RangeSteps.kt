@@ -11,8 +11,7 @@ class RangeSteps {
 	}
 
 	@Given("{string} is {int} meters apart from {string}")
-	fun `{character} is {distance} meters apart from {character}`
-		(characterA: String, distance: Int, characterB: String) {
+	fun `{character} is {distance} meters apart from {character}`(characterA: String, distance: Int, characterB: String) {
 		distanceCharacters(characterA, characterB, distance)
 	}
 }

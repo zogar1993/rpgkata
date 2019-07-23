@@ -4,6 +4,6 @@ Feature: Thing Creation
     Given thing "chair" is created with <health> health
     Then thing "chair" should have <health> health
     Examples:
-    | health |
-    | 50     |
-    | 2000   |
+      | health |
+      | 50     |
+      | 2000   |

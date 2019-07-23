@@ -17,7 +17,7 @@ class GameCharacter private constructor(val name: String) {
 		healthBar.increaseBy(amount)
 	}
 
-	fun damage(amount: Int){
+	fun damage(amount: Int) {
 		healthBar.decreaseBy(amount)
 	}
 

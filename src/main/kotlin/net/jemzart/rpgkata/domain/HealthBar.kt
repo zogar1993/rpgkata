@@ -1,6 +1,6 @@
 package net.jemzart.rpgkata.domain
 
-class HealthBar(val max: Int){
+class HealthBar(val max: Int) {
 	var current = max
 		private set(value) {
 			field = when {
@@ -12,10 +12,11 @@ class HealthBar(val max: Int){
 
 	val empty get() = this.current == EMPTY_VALUE
 
-	fun increaseBy(amount: Int){
+	fun increaseBy(amount: Int) {
 		current += amount
 	}
-	fun decreaseBy(amount: Int){
+
+	fun decreaseBy(amount: Int) {
 		current -= amount
 	}
 

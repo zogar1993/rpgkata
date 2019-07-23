@@ -53,8 +53,7 @@ class CharacterSteps {
 	}
 
 	@Then("{string} heals {string} by {int}")
-	fun `{healer} heals {target} by {amount}`
-		(healer: String, target: String, amount: Int) {
+	fun `{healer} heals {target} by {amount}`(healer: String, target: String, amount: Int) {
 		applyHealingToCharacter(healer, target, amount)
 	}
 }

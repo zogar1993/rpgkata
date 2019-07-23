@@ -5,6 +5,6 @@ Feature: Joining Factions
 
   Scenario: A character may join many factions
     Given "linuar" joins faction "underworld"
-    Given "linuar" joins faction "angels"
+    And "linuar" joins faction "angels"
     Then "linuar" should be part of "underworld"
-    Then "linuar" should be part of "angels"
+    And "linuar" should be part of "angels"
