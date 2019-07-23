@@ -1,6 +1,5 @@
 package net.jemzart.rpgkata.domain.character
 
-import net.jemzart.rpgkata.domain.CharacterRange
 import net.jemzart.rpgkata.domain.HealthBar
 
 class GameCharacter private constructor(val name: String) {

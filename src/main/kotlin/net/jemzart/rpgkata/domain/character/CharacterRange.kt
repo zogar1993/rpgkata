@@ -1,4 +1,4 @@
-package net.jemzart.rpgkata.domain
+package net.jemzart.rpgkata.domain.character
 
 enum class CharacterRange(val max: Int) {
 	Melee(2),

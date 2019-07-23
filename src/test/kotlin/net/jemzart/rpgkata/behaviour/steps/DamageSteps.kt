@@ -24,4 +24,10 @@ class DamageSteps {
 		(attacker: String, amount: Int, target: String) {
 		dealDamageToCharacter(attacker, target, amount)
 	}
+
+	@Then("{string} deals {int} damage to thing {string}")
+	fun `{attacker} deals {amount} damage to thing {target}`
+		(attacker: String, amount: Int, target: String) {
+		dealDamageToThing(attacker, target, amount)
+	}
 }

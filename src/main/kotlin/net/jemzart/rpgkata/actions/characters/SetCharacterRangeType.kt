@@ -1,6 +1,6 @@
 package net.jemzart.rpgkata.actions.characters
 
-import net.jemzart.rpgkata.domain.CharacterRange
+import net.jemzart.rpgkata.domain.character.CharacterRange
 import net.jemzart.rpgkata.domain.character.GameCharacters
 
 class SetCharacterRangeType(private val characters: GameCharacters) {
