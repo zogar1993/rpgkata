@@ -18,13 +18,13 @@ class DealDamageToCharacter(
 		if (attacker.doesNotReach(target)) return
 		if (attacker.isAlliedWith(target)) return
 
-		val total = when {
-			attacker.level >= target.level + 5 -> (amount * OVERLEVEL_DAMAGE_FACTOR).toInt()
-			target.level >= attacker.level + 5 -> (amount * UNDERLEVEL_DAMAGE_FACTOR).toInt()
-			else -> amount
+		val levelModifier = when {
+			attacker.level >= target.level + 5 -> OVERLEVEL_DAMAGE_FACTOR
+			target.level >= attacker.level + 5 -> UNDERLEVEL_DAMAGE_FACTOR
+			else -> 1.0
 		}
 
-		target.damage(total)
+		target.damage((amount * levelModifier).toInt())
 
 		characters.put(target)
 	}
