@@ -1,7 +1,8 @@
 Feature: Dealing damage to a thing
 
   Background:
-    Given character "linuar" is created
+    Given a new game starts
+    And character "linuar" is created
     And thing "chair" is created with 500 health
 
   Scenario: Damage is subtracted from target health

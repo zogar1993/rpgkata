@@ -9,4 +9,8 @@ class Things {
 	fun search(name: String): Thing {
 		return things.getValue(name)
 	}
+
+	fun clear() {
+		things.clear()
+	}
 }

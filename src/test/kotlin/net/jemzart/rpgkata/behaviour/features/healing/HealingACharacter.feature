@@ -1,7 +1,8 @@
 Feature: Dealing damage to a character
 
   Background:
-    Given character "linuar" is created
+    Given a new game starts
+    And character "linuar" is created
     And character "carrie" is created
 
   Scenario: Can heal self

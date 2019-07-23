@@ -14,13 +14,14 @@ class CharacterSteps {
 
 	@Given("{string} is dead")
 	fun `{name} is dead`(name: String) {
-		dealDamageToCharacter(THE_SHADOW, name, 2000)
+		val character = characters.search(name)
+		character.damage(2000)
 	}
 
 	@Given("{string} has {int} health")
 	fun `{name} has {amount} health`(name: String, amount: Int) {
 		val character = characters.search(name)
-		dealDamageToCharacter(THE_SHADOW, name, character.health - amount)
+		character.damage(character.health - amount)
 	}
 
 	@Given("{string} is level {int}")

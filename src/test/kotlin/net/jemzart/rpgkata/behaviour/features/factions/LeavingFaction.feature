@@ -1,7 +1,8 @@
 Feature: Joining Factions
 
   Background:
-    Given character "linuar" is created
+    Given a new game starts
+    And character "linuar" is created
 
   Scenario: A character may leave a faction
     Given "linuar" joins faction "underworld"

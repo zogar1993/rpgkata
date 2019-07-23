@@ -1,8 +1,9 @@
 Feature: Dealing damage to a character in range
 
   Background:
-    Given character "linuar" is created
-    Given character "carrie" is created
+    Given a new game starts
+    And character "linuar" is created
+    And character "carrie" is created
 
   Scenario Outline: Target is in range of a <range_type> attacker when they are <distance> meters apart
     Given "linuar" has a ranged type of <range_type>

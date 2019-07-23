@@ -1,7 +1,8 @@
 Feature: Damage modifiers according to level difference between attacker and target.
 
   Background:
-    Given character "linuar" is created
+    Given a new game starts
+    And character "linuar" is created
     And character "carrie" is created
 
   Scenario Outline: 5 levels above modifier. Attacker level: <attacker_level>. Target: level <target_level>.

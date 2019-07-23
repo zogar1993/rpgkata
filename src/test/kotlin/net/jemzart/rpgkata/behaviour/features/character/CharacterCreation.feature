@@ -1,5 +1,8 @@
 Feature: Character Creation
 
+  Background:
+    Given a new game starts
+
   Scenario: A character is created with default values
     Given character "linuar" is created
     Then "linuar" should be level 1

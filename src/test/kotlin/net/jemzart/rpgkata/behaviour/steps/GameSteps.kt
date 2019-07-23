@@ -1,5 +1,7 @@
-package net.jemzart.rpgkata.behaviour
+package net.jemzart.rpgkata.behaviour.steps
 
+import cucumber.api.java.en.Given
+import cucumber.api.java.en.Then
 import net.jemzart.rpgkata.actions.characters.CreateCharacter
 import net.jemzart.rpgkata.actions.characters.SetCharacterLevel
 import net.jemzart.rpgkata.actions.characters.SetCharacterRangeType
@@ -10,18 +12,16 @@ import net.jemzart.rpgkata.actions.factions.JoinFaction
 import net.jemzart.rpgkata.actions.factions.LeaveFaction
 import net.jemzart.rpgkata.actions.healing.ApplyHealingToCharacter
 import net.jemzart.rpgkata.actions.things.CreateThing
+import net.jemzart.rpgkata.behaviour.*
 import net.jemzart.rpgkata.domain.character.GameCharacters
 import net.jemzart.rpgkata.domain.thing.Things
+import org.junit.Assert.assertEquals
+import org.junit.Assert.assertTrue
 
-val characters = GameCharacters()
-val things = Things()
-val createCharacter = CreateCharacter(characters)
-val createThing = CreateThing(things)
-val dealDamageToCharacter = DealDamageToCharacter(characters)
-val applyHealingToCharacter = ApplyHealingToCharacter(characters)
-val setCharacterLevel = SetCharacterLevel(characters)
-val joinFaction = JoinFaction(characters)
-val leaveFaction = LeaveFaction(characters)
-val setCharacterRangeType = SetCharacterRangeType(characters)
-val distanceCharacters = DistanceCharacters(characters)
-val dealDamageToThing = DealDamageToThing(characters, things)
+class GameSteps {
+	@Given("a new game starts")
+	fun `a new game starts`() {
+		characters.clear()
+		things.clear()
+	}
+}
