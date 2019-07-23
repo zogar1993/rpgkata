@@ -1,7 +1,7 @@
 package net.jemzart.rpgkata.behaviour.steps
 
 import cucumber.api.java.en.Given
-import net.jemzart.rpgkata.behaviour.distanceCharacters
+import net.jemzart.rpgkata.behaviour.placeCharacterAt
 import net.jemzart.rpgkata.behaviour.setCharacterRangeType
 
 class RangeSteps {
@@ -12,6 +12,7 @@ class RangeSteps {
 
 	@Given("{string} is {int} meters apart from {string}")
 	fun `{character} is {distance} meters apart from {character}`(characterA: String, distance: Int, characterB: String) {
-		distanceCharacters(characterA, characterB, distance)
+		placeCharacterAt(characterA, 0)
+		placeCharacterAt(characterB, distance)
 	}
 }

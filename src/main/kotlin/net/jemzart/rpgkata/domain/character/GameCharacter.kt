@@ -9,7 +9,6 @@ class GameCharacter private constructor(val name: String) {
 	val dead get() = healthBar.empty
 	var level = INITIAL_LEVEL
 	val health get() = healthBar.current
-	private val distances = mutableMapOf<GameCharacter, Int>()
 
 	private var healthBar = HealthBar(INITIAL_HEALTH)
 
@@ -21,20 +20,12 @@ class GameCharacter private constructor(val name: String) {
 		healthBar.decreaseBy(amount)
 	}
 
-	fun setDistanceFrom(character: GameCharacter, distance: Int) {
-		distances[character] = distance
-	}
-
 	fun join(faction: String) {
 		factions += faction
 	}
 
 	fun leave(faction: String) {
 		factions -= faction
-	}
-
-	fun reaches(character: GameCharacter): Boolean {
-		return !(character in distances.keys && distances.getValue(character) > range.max)
 	}
 
 	fun isAlliedWith(target: GameCharacter): Boolean {
